@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Booking App</title>
+    <style>
+        .page {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .movies {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .movie {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        img {
+            width: 150px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page 1 -->
+    <div id="page1" class="page active">
+        <h1>Movies List</h1>
+
+        <div class="movies">
+            <div class="movie" onclick="showMovie('Jawan')">
+                <img src="https://imgs.search.brave.com/6GY81XpL7XsJ3mMkQR_aBdG9P_9bfQ_q56sE-M8Uyl4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzhhLzBk/Lzk4LzhhMGQ5ODdl/YWFjMDZhZjNhNTFj/YWY3OTQxN2QwMjQ2/LmpwZw" alt="">
+                <p>Jawan</p>
+            </div>
+
+            <div class="movie" onclick="showMovie('Animal')">
+                <img src="https://imgs.search.brave.com/TyNGWDYH_dEMN2ECmPhvZbyJ1DBsgyg7w1_PEmTBJz8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9teWhv/dHBvc3RlcnMuY29t/L2Nkbi9zaG9wL3By/b2R1Y3RzL21MNjk2/NF8xMDI0eDEwMjQu/anBnP3Y9MTc0ODUz/MTQwMw" alt="">
+                <p>Animal</p>
+            </div>
+
+            <div class="movie" onclick="showMovie('Pushpa')">
+                <img src="https://imgs.search.brave.com/FN9SYJ1UnbLufMCeInzsvMdzOa45kSDN_e5FCZedQwk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzQzLzQ1/L2JiLzQzNDViYjRm/MWYzMDlhMTE4OGVh/NzZiMTJhNmM4Y2Mw/LmpwZw" alt="">
+                <p>Pushpa</p>
+            </div>
+
+            <div class="movie" onclick="showMovie('KGF 2')">
+                <img src="https://imgs.search.brave.com/ENrPFNarYVzM_zHR5D13IGVbsdu79jIij8QZTyuxa1U/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9ydWtt/aW5pbTIuZmxpeGNh/cnQuY29tL2ltYWdl/LzgwMC8xMDcwL2tr/d3d1NHcwL3Bvc3Rl/ci9wLzYvZy9tZWRp/dW0ta2dmLXlhc2gt/bW92aWUtcG9zdGVy/LWZvci1yb29tLW9m/ZmljZS1wYXBlci1w/cmludC1rZ2Ytb3Jp/Z2luYWwtaW1hZ3k1/a3preWhicWR4bi5q/cGVnP3E9OTA" alt="">
+                <p>KGF</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 2 -->
+    <div id="page2" class="page">
+        <h1>Movie Details</h1>
+        <h2 id="movieName"></h2>
+
+        <button onclick="goToBooking()">
+            Book Seat
+        </button>
+    </div>
+
+    <!-- Page 3 -->
+    <div id="page3" class="page">
+        <h1>Booking Form</h1>
+
+        <input type="text" id="name" placeholder="Name"><br><br>
+
+        <input type="email" id="email" placeholder="Email"><br><br>
+
+        <input type="text" id="mobile" placeholder="Mobile"><br><br>
+
+        <button onclick="bookSeat()">
+            Submit
+        </button>
+    </div>
+
+    <!-- Page 4 -->
+    <div id="page4" class="page">
+        <h1>Seat Booked Successfully</h1>
+
+        <p id="bookingId"></p>
+        <p id="userName"></p>
+        <p id="userEmail"></p>
+        <p id="userMobile"></p>
+    </div>
+
+    <script>
+        let selectedMovie = "";
+
+        function hideAllPages() {
+            document.querySelectorAll(".page")
+                .forEach(page => page.classList.remove("active"));
+        }
+
+        function showMovie(movie) {
+            selectedMovie = movie;
+
+            hideAllPages();
+
+            document.getElementById("page2")
+                .classList.add("active");
+
+            document.getElementById("movieName")
+                .innerText = movie;
+        }
+
+        function goToBooking() {
+            hideAllPages();
+
+            document.getElementById("page3")
+                .classList.add("active");
+        }
+
+        function bookSeat() {
+
+            let name =
+                document.getElementById("name").value;
+
+            let email =
+                document.getElementById("email").value;
+
+            let mobile =
+                document.getElementById("mobile").value;
+
+            let bookingId =
+                Math.floor(Math.random() * 1000000);
+
+            hideAllPages();
+
+            document.getElementById("page4")
+                .classList.add("active");
+
+            document.getElementById("bookingId")
+                .innerText =
+                "Booking ID: " + bookingId;
+
+            document.getElementById("userName")
+                .innerText =
+                "Name: " + name;
+
+            document.getElementById("userEmail")
+                .innerText =
+                "Email: " + email;
+
+            document.getElementById("userMobile")
+                .innerText =
+                "Mobile: " + mobile;
+        }
+    </script>
+
+</body>
+</html>
