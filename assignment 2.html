@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Assignment</title>
+</head>
+<body>
+
+    <h1>JavaScript Assignment Output</h1>
+
+    <div id="output"></div>
+
+    <script>
+        let result = "";
+
+        // Question 1
+        result += "<h2>Question 1: Even Numbers from 2 to 100</h2>";
+
+        for (let i = 2; i <= 100; i += 2) {
+            result += i + " ";
+        }
+
+        // Question 2
+        function calculate(num1, num2, operator) {
+            switch (operator) {
+                case '+':
+                    return num1 + num2;
+                case '-':
+                    return num1 - num2;
+                case '*':
+                    return num1 * num2;
+                case '/':
+                    if (num2 === 0) {
+                        return "Error: Division by zero is not allowed.";
+                    }
+                    return num1 / num2;
+                default:
+                    return "Invalid Operator";
+            }
+        }
+
+        result += "<h2>Question 2: Calculator</h2>";
+        result += "10 * 5 = " + calculate(10, 5, '*') + "<br>";
+        result += "10 / 0 = " + calculate(10, 0, '/') + "<br>";
+
+        // Question 3
+        function findTax(salary) {
+            let taxRate = 0;
+
+            switch (true) {
+                case (salary > 0 && salary <= 500000):
+                    taxRate = 0;
+                    break;
+                case (salary > 500000 && salary <= 1000000):
+                    taxRate = 0.10;
+                    break;
+                case (salary > 1000000 && salary <= 1500000):
+                    taxRate = 0.20;
+                    break;
+                case (salary > 1500000):
+                    taxRate = 0.30;
+                    break;
+                default:
+                    return "Invalid salary";
+            }
+
+            return salary * taxRate;
+        }
+
+        result += "<h2>Question 3: Tax Calculation</h2>";
+        result += "Tax on 750000 = " + findTax(750000) + "<br>";
+        result += "Tax on 2000000 = " + findTax(2000000) + "<br>";
+
+        // Question 4
+        function sumOfProductOfDigits(n1, n2) {
+            let totalSum = 0;
+
+            while (n1 > 0 || n2 > 0) {
+                let digit1 = n1 % 10;
+                let digit2 = n2 % 10;
+
+                totalSum += digit1 * digit2;
+
+                n1 = Math.floor(n1 / 10);
+                n2 = Math.floor(n2 / 10);
+            }
+
+            return totalSum;
+        }
+
+        result += "<h2>Question 4: Sum of Product of Digits</h2>";
+        result += "sumOfProductOfDigits(6, 34) = " +
+                  sumOfProductOfDigits(6, 34) + "<br>";
+
+        result += "sumOfProductOfDigits(123, 45) = " +
+                  sumOfProductOfDigits(123, 45) + "<br>";
+
+        document.getElementById("output").innerHTML = result;
+    </script>
+
+</body>
+</html>
