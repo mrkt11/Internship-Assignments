@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text Style Editor</title>
+
+<style>
+.text-here {
+    font-size: 55px;
+    font-family: sans-serif;
+    color: black;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    text-align: left;
+    letter-spacing: normal;
+    word-spacing: normal;
+}
+
+.stylebt {
+    padding: 5px 10px;
+    margin: 5px;
+}
+
+#css-props {
+    border: 1px solid #ccc;
+    padding: 10px;
+    min-height: 40px;
+}
+</style>
+</head>
+<body>
+
+<div class="text-here" id="text-container">
+    This is some example text
+</div>
+
+<br>
+
+<input type="text" id="colorbox" placeholder="Enter color">
+
+<button id="colorchange">Change Colour</button>
+
+<br><br>
+
+<input type="range" id="fontsize" min="10" max="100" value="55">
+
+<br><br>
+
+<button id="italic" class="stylebt">Italics</button>
+<button id="underline" class="stylebt">Underline</button>
+<button id="bold" class="stylebt">Bold</button>
+
+<br><br>
+
+<select id="list">
+    <option value="serif">Serif</option>
+    <option value="sans-serif">Sans-Serif</option>
+    <option value="monospace">Monospace</option>
+    <option value="cursive">Cursive</option>
+    <option value="fantasy">Fantasy</option>
+</select>
+
+<br><br>
+
+<button id="getstyle">Get CSS</button>
+
+<br><br>
+
+<p id="css-props"></p>
+
+<script>
+const textContainer = document.getElementById("text-container");
+const colorBox = document.getElementById("colorbox");
+const colorChange = document.getElementById("colorchange");
+const fontSize = document.getElementById("fontsize");
+const italicBtn = document.getElementById("italic");
+const underlineBtn = document.getElementById("underline");
+const boldBtn = document.getElementById("bold");
+const fontList = document.getElementById("list");
+const getStyleBtn = document.getElementById("getstyle");
+const cssProps = document.getElementById("css-props");
+
+// Change Text Color
+colorChange.addEventListener("click", function () {
+    textContainer.style.color = colorBox.value;
+});
+
+// Change Font Size
+fontSize.addEventListener("input", function () {
+    textContainer.style.fontSize = fontSize.value + "px";
+});
+
+// Toggle Italic
+italicBtn.addEventListener("click", function () {
+    textContainer.style.fontStyle =
+        textContainer.style.fontStyle === "italic"
+        ? "normal"
+        : "italic";
+});
+
+// Toggle Underline
+underlineBtn.addEventListener("click", function () {
+    textContainer.style.textDecoration =
+        textContainer.style.textDecoration === "underline"
+        ? "none"
+        : "underline";
+});
+
+// Toggle Bold
+boldBtn.addEventListener("click", function () {
+    textContainer.style.fontWeight =
+        textContainer.style.fontWeight === "bold"
+        ? "normal"
+        : "bold";
+});
+
+// Change Font Family
+fontList.addEventListener("change", function () {
+    textContainer.style.fontFamily = fontList.value;
+});
+
+// Show CSS Properties
+getStyleBtn.addEventListener("click", function () {
+    cssProps.textContent =
+        "color: " + (textContainer.style.color || "black") + "; " +
+        "font-size: " + (textContainer.style.fontSize || "55px") + "; " +
+        "font-family: " + (textContainer.style.fontFamily || "sans-serif") + "; " +
+        "text-decoration: " + (textContainer.style.textDecoration || "none") + "; " +
+        "font-style: " + (textContainer.style.fontStyle || "normal") + "; " +
+        "font-weight: " + (textContainer.style.fontWeight || "normal") + ";";
+});
+</script>
+
+</body>
+</html>
