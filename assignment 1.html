@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Webpage Design</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header */
+        .header{
+            background:#333;
+            color:white;
+            padding:20px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .logo{
+            font-size:28px;
+            font-weight:bold;
+        }
+
+        .social a{
+            color:white;
+            text-decoration:none;
+            margin-left:15px;
+        }
+
+        /* Menu Bar */
+        .menu{
+            background:#555;
+        }
+
+        .menu ul{
+            list-style:none;
+            display:flex;
+        }
+
+        .menu ul li{
+            padding:15px 20px;
+        }
+
+        .menu ul li a{
+            color:white;
+            text-decoration:none;
+        }
+
+        .menu ul li:hover{
+            background:#777;
+        }
+
+        /* Main Layout */
+        .container{
+            display:flex;
+            min-height:500px;
+        }
+
+        /* Sidebar */
+        .sidebar{
+            width:25%;
+            background:#f4f4f4;
+            padding:20px;
+        }
+
+        .sidebar h2{
+            margin-bottom:15px;
+        }
+
+        .sidebar ul{
+            list-style:square;
+            padding-left:20px;
+        }
+
+        /* Content */
+        .content{
+            width:75%;
+            padding:20px;
+        }
+
+        .boxes{
+            display:flex;
+            gap:20px;
+            justify-content:space-between;
+        }
+
+        .box{
+            width:30%;
+            border:1px solid #ccc;
+            padding:15px;
+            text-align:center;
+            border-radius:5px;
+        }
+
+        .box img{
+            width:100%;
+            height:180px;
+        }
+
+        .box h3{
+            margin:10px 0;
+        }
+
+        /* Footer */
+        .footer{
+            background:#333;
+            color:white;
+            text-align:center;
+            padding:15px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">My Logo</div>
+
+        <div class="social">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+        </div>
+    </div>
+
+    <!-- Menu Bar -->
+    <div class="menu">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Section -->
+    <div class="container">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Sidebar</h2> 
+            <ul>
+                <li>HTML Notes</li>
+                <li>CSS Tutorial</li>
+                <li>JavaScript Basics</li>
+                <li>Web Development</li>
+            </ul>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="boxes">
+
+                <div class="box">
+                    <h3>HTML</h3>
+                    <img src="https://imgs.search.brave.com/-A7DMn2sD4NJtodxwkO-SQM6qd5-pMzItJulgw-SvIQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/d29ybGR2ZWN0b3Js/b2dvLmNvbS9sb2dv/cy9odG1sLTEuc3Zn" alt="HTML">
+                    <p>HTML is used to create the structure of web pages.</p>
+                </div>
+                <div class="box">
+                    <h3>CSS</h3>
+                    <img src="https://imgs.search.brave.com/RgVw7TR4U4riBvB4_Aie0ngUM5orFW9NSnu-0lrFJkk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/d29ybGR2ZWN0b3Js/b2dvLmNvbS9sb2dv/cy9jc3MtMy5zdmc" alt="CSS">
+                    <p>CSS is used to style and design web pages.</p>
+                </div>
+
+                <div class="box">
+                    <h3>JavaScript</h3>
+                    <img src="https://imgs.search.brave.com/7t_jR7sY58dEIBGI4C4JZnTqaRgyhrzx7P4seOnBtEo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuc2Vla2xvZ28u/Y29tL2xvZ28tcG5n/LzMzLzIvamF2YXNj/cmlwdC1sb2dvLXBu/Z19zZWVrbG9nby0z/MzA1NDEucG5n" alt="JS">
+                    <p>JavaScript adds interactivity to websites.</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        © 2026 My Website. All Rights Reserved.
+    </div>
+
+</body>
+</html>
