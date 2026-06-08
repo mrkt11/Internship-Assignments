@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo App</title>
+</head>
+<body>
+
+    <h2>Todo List</h2>
+
+    <input type="text" id="taskInput" placeholder="Enter Task">
+    <button onclick="addTask()">Add</button>
+
+    <ul id="todoList"></ul>
+
+    <script>
+        let todos = [];
+
+        function addTask() {
+            const input = document.getElementById("taskInput");
+            const task = input.value.trim();
+
+            if (task === "") return;
+
+            todos.push(task);
+
+            // Sort in ascending order
+            todos.sort();
+
+            input.value = "";
+
+            displayTasks();
+        }
+
+        function deleteTask(index) {
+            todos.splice(index, 1);
+            displayTasks();
+        }
+
+        function displayTasks() {
+            const list = document.getElementById("todoList");
+            list.innerHTML = "";
+
+            todos.forEach((task, index) => {
+                const li = document.createElement("li");
+
+                li.innerHTML = `
+                    ${task}
+                    <button onclick="deleteTask(${index})">
+                        Delete
+                    </button>
+                `;
+
+                list.appendChild(li);
+            });
+        }
+
+        document.getElementById("taskInput")
+            .addEventListener("keypress", function(event) {
+                if (event.key === "Enter") {
+                    addTask();
+                }
+            });
+    </script>
+
+</body>
+</html>
