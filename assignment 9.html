@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Practice 1 - Delta</title>
+</head>
+<body>
+
+    <h2>JavaScript Practice Output</h2>
+
+    <div id="output"></div>
+
+    <script>
+        let result = "";
+
+        // 1. let, const, var
+        function scopeExample() {
+            var a = "var";
+            let b = "let";
+            const c = "const";
+
+            result += "<h3>1. Scope Example</h3>";
+            result += "var: " + a + "<br>";
+            result += "let: " + b + "<br>";
+            result += "const: " + c + "<br><br>";
+        }
+        scopeExample();
+
+        // 2. Second Fruit
+        const fruits = ["Apple", "Banana", "Mango", "Orange", "Grapes"];
+
+        function getSecondFruit() {
+            return fruits[1];
+        }
+
+        result += "<h3>2. Second Fruit</h3>";
+        result += getSecondFruit() + "<br><br>";
+
+        // 3. Push and Pop
+        function modifyArray(arr) {
+            arr.push("New Element");
+            arr.pop();
+            return arr;
+        }
+
+        result += "<h3>3. Push and Pop</h3>";
+        result += modifyArray([1,2,3]).join(", ") + "<br><br>";
+
+        // 4. Map Square
+        function squareNumbers(arr) {
+            return arr.map(num => num * num);
+        }
+
+        result += "<h3>4. Squared Numbers</h3>";
+        result += squareNumbers([1,2,3,4,5]).join(", ") + "<br><br>";
+
+        // 5. Filter Odd Numbers
+        function getOddNumbers(arr) {
+            return arr.filter(num => num % 2 !== 0);
+        }
+
+        result += "<h3>5. Odd Numbers</h3>";
+        result += getOddNumbers([1,2,3,4,5,6]).join(", ") + "<br><br>";
+
+        // 6. Person Object
+        const person = {
+            name: "Krishna",
+            age: 22,
+            occupation: "Student"
+        };
+
+        function greetPerson(person) {
+            return `Hello, my name is ${person.name}. I am ${person.age} years old and I am a ${person.occupation}.`;
+        }
+
+        result += "<h3>6. Greeting</h3>";
+        result += greetPerson(person) + "<br><br>";
+
+        // 7. Rectangle Area
+        function getArea(rectangle) {
+            return rectangle.width * rectangle.height;
+        }
+
+        result += "<h3>7. Rectangle Area</h3>";
+        result += getArea({width:10, height:5}) + "<br><br>";
+
+        // 8. Object Keys
+        function getKeys(obj) {
+            return Object.keys(obj);
+        }
+
+        result += "<h3>8. Object Keys</h3>";
+        result += getKeys(person).join(", ") + "<br><br>";
+
+        // 9. Merge Objects
+        function mergeObjects(obj1, obj2) {
+            return Object.assign({}, obj1, obj2);
+        }
+
+        const merged = mergeObjects(
+            {name:"Krishna"},
+            {age:22}
+        );
+
+        result += "<h3>9. Merged Object</h3>";
+        result += JSON.stringify(merged) + "<br><br>";
+
+        // 10. Reduce Sum
+        function calculateSum(arr) {
+            return arr.reduce((sum, num) => sum + num, 0);
+        }
+
+        result += "<h3>10. Sum using Reduce</h3>";
+        result += calculateSum([10,20,30,40,50]);
+
+        document.getElementById("output").innerHTML = result;
+    </script>
+
+</body>
+</html>
