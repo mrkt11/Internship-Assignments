@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Practice Assignment</title>
+</head>
+<body>
+
+    <h1>JavaScript Assignment Output</h1>
+    <div id="output"></div>
+
+    <script>
+        let result = "";
+
+        // Question 1
+        const states = ["Andhra Pradesh", "Bihar", "Goa", "Gujarat", "Karnataka", "Odisha", "Uttar Pradesh", "Kerala"];
+        const filteredStates = states.filter(state => !/^[aeiouAEIOU]/.test(state));
+
+        result += "<h3>Question 1</h3>";
+        result += filteredStates.join(", ") + "<br><br>";
+
+        // Question 2
+        let str = "I love my India";
+        let reversed = str.split(" ").reverse().join(" ");
+
+        result += "<h3>Question 2</h3>";
+        result += reversed + "<br><br>";
+
+        // Question 3
+        let word = "INDIA";
+        let arr = word.split("");
+        arr.splice(4, 1, "O", "N", "E", "S", "I", "A");
+
+        result += "<h3>Question 3</h3>";
+        result += arr.join("") + "<br><br>";
+
+        // Question 4
+        let text = "JavaScript is awesome and versatile!";
+        let vowels = 0;
+        let consonants = 0;
+
+        for (let ch of text.toLowerCase()) {
+            if (ch >= 'a' && ch <= 'z') {
+                if ("aeiou".includes(ch))
+                    vowels++;
+                else
+                    consonants++;
+            }
+        }
+
+        result += "<h3>Question 4</h3>";
+        result += "Vowels: " + vowels + ", Consonants: " + consonants + "<br><br>";
+
+        // Question 5
+        function correctfn(string, wrong, correct) {
+            let regex = new RegExp(wrong, "g");
+            return string.replace(regex, correct);
+        }
+
+        result += "<h3>Question 5</h3>";
+        result += correctfn(
+            "This is a wrng word and that is a wrng word.",
+            "wrng",
+            "wrong"
+        ) + "<br><br>";
+
+        // Question 6
+        const inputArr = [1, 2, 3, 9, 10, 7, 5, 4, 3];
+        const answer = inputArr.filter(num => num > 5);
+
+        result += "<h3>Question 6</h3>";
+        result += answer.join(", ") + "<br><br>";
+
+        // Question 7
+        const students = [
+            { name: "Ram", scores: [80, 70, 60] },
+            { name: "Mohan", scores: [80, 70, 90] },
+            { name: "Sai", scores: [60, 70, 80] },
+            { name: "Hemang", scores: [90, 90, 80, 80] }
+        ];
+
+        const averages = students.map(student => {
+            const total = student.scores.reduce((sum, score) => sum + score, 0);
+            return {
+                name: student.name,
+                average: total / student.scores.length
+            };
+        });
+
+        result += "<h3>Question 7</h3>";
+        result += JSON.stringify(averages) + "<br><br>";
+
+        // Question 8
+        function singleDigitSum(num) {
+            while (num >= 10) {
+                let sum = 0;
+                while (num > 0) {
+                    sum += num % 10;
+                    num = Math.floor(num / 10);
+                }
+                num = sum;
+            }
+            return num;
+        }
+
+        result += "<h3>Question 8</h3>";
+        result += singleDigitSum(456) + "<br><br>";
+
+        // Question 9
+        function countWords(paragraph) {
+            let cleanText = paragraph.trim();
+            if (cleanText === "") return 0;
+            return cleanText.split(/\s+/).length;
+        }
+
+        result += "<h3>Question 9</h3>";
+        result += countWords("JavaScript is a highly flexible programming language.") + "<br><br>";
+
+        // Question 10
+        function reverseString(str) {
+            return str.split("").reverse().join("");
+        }
+
+        result += "<h3>Question 10</h3>";
+        result += reverseString("Hello") + "<br><br>";
+
+        // Question 11
+        const inputData = [
+            {
+                student1: { subject1: 44, subject2: 56, subject3: 87, subject4: 97, subject5: 37 }
+            },
+            {
+                student2: { subject1: 44, subject2: 56, subject3: 87, subject4: 97, subject5: 37 }
+            },
+            {
+                student3: { subject1: 44, subject2: 56, subject3: 87, subject4: 97, subject5: 37 }
+            }
+        ];
+
+        const outputData = inputData.map(obj => {
+            let studentKey = Object.keys(obj)[0];
+            let scores = Object.values(obj[studentKey]);
+
+            let total = scores.reduce((sum, score) => sum + score, 0);
+            let average = total / scores.length;
+
+            return {
+                [studentKey]: {
+                    average: average
+                }
+            };
+        });
+
+        result += "<h3>Question 11</h3>";
+        result += "<pre>" + JSON.stringify(outputData, null, 4) + "</pre>";
+
+        document.getElementById("output").innerHTML = result;
+    </script>
+
+</body>
+</html>
